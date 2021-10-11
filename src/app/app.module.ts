@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { NewblogComponent } from './newblog/newblog.component';
 import { FormsModule } from '@angular/forms';
+import { ViewBlogComponent } from './view-blog/view-blog.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     ContactComponent,
     HomeComponent,
     NewblogComponent,
+    ViewBlogComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
