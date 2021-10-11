@@ -1,0 +1,29 @@
+{
+  "blogs": [
+    {
+      "id": 101,
+      "title": "First Blog",
+      "content": "My First food blog"
+    },
+    {
+      "id": 102,
+      "title": "Second Blog",
+      "content": "My Second food blog"
+    },
+    {
+      "id": 103,
+      "title": "Third Blog",
+      "content": "My Third food blog"
+    },
+    {
+      "id": 104,
+      "title": "Fourth Blog",
+      "content": "My Fourth food blog"
+    },
+    {
+      "id": 104,
+      "title": "Fifth Blog",
+      "content": "My Fifth food blog"
+    }
+  ]
+}
