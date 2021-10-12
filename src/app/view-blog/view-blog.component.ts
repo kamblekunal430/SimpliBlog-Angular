@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-blog',
@@ -10,7 +10,25 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewBlogComponent implements OnInit {
   blogId: any;
   blog: any;
-  constructor(private route: ActivatedRoute, private http: HttpClient) {
+
+  deleteBlog() {
+    if (confirm('Confirm Delete Blog')) {
+      this.http.delete('http://localhost:8000/blogs/' + this.blogId).subscribe(
+        (response: any) => {
+          console.log('Deleted successfully', response);
+          this.router.navigate(['/']);
+        },
+        (error: any) => {
+          console.log('Failed to delete the blog');
+        }
+      );
+    }
+  }
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private router: Router
+  ) {
     this.route.params.subscribe((params) => (this.blogId = params.id));
   }
 

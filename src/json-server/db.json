@@ -19,16 +19,6 @@
       "id": 4,
       "title": "Fourth Blog",
       "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt non iure aperiam est dicta in. Optio temporibus a commodi voluptatum magnam tenetur. Vel tenetur molestiae, eveniet nemo praesentium magnam aperiam!"
-    },
-    {
-      "id": 5,
-      "title": "Fifth Blog",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt non iure aperiam est dicta in. Optio temporibus a commodi voluptatum magnam tenetur. Vel tenetur molestiae, eveniet nemo praesentium magnam aperiam!"
-    },
-    {
-      "title": "Food Blog",
-      "content": "A Food Blog website created using Angular",
-      "id": 6
     }
   ]
 }

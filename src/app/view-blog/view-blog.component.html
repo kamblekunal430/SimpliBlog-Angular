@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <div class="card mb-3">
     <img
+      style="height: 600px"
       src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapershome.com%2Fimages%2Fwallpapers%2Fgreek-3840x2160-cooking-recipe-lettuce-tomatoes-paprika-olives-feta-4k-17422.jpg&f=1&nofb=1"
       class="card-img-top"
       alt="Food Blog Image"
@@ -13,6 +14,10 @@
       <p class="card-text">
         {{ blog.content }}
       </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-info">Update</button>
+      <button class="btn btn-danger mx-3" (click)="deleteBlog()">Delete</button>
     </div>
   </div>
 </div>
