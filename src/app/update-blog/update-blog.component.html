@@ -1,0 +1,47 @@
+<div class="container col-8">
+  <div class="m-3 text-center" style="font-family: monospace">
+    <h1>Update your Blog</h1>
+  </div>
+  <form class="m-3">
+    <div class="mb-3">
+      <label for="title" class="form-label">Blog Title</label>
+      <input
+        type="text"
+        name="title"
+        placeholder="Blog Title..."
+        value="{{ title || '' }}"
+        class="form-control"
+        [(ngModel)]="title"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input
+        type="text"
+        name="author"
+        placeholder="Author name..."
+        value="{{ author || '' }}"
+        class="form-control"
+        [(ngModel)]="author"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input type="file" name="image" accept="image/*" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <textarea
+        rows="15"
+        placeholder="Blog Content..."
+        value="{{ content || '' }}"
+        name="content"
+        class="form-control"
+        [(ngModel)]="content"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="updateBlog()">
+      Submit
+    </button>
+  </form>
+</div>

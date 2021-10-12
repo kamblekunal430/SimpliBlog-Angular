@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { NewblogComponent } from './newblog/newblog.component';
 import { FormsModule } from '@angular/forms';
 import { ViewBlogComponent } from './view-blog/view-blog.component';
+import { UpdateBlogComponent } from './update-blog/update-blog.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ViewBlogComponent } from './view-blog/view-blog.component';
     HomeComponent,
     NewblogComponent,
     ViewBlogComponent,
+    UpdateBlogComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
