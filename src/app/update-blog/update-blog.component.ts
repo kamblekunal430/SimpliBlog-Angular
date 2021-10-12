@@ -15,6 +15,23 @@ export class UpdateBlogComponent implements OnInit {
   image: any;
   content: any;
 
+  handleReaderLoaded = (readerEvent: any) => {
+    this.image = readerEvent.target.result;
+    console.log('2 ', this.image);
+  };
+
+  onImgUpload(event: any) {
+    let file = event.target.files[0];
+    console.log('file to upload', file);
+
+    // if file exist convert into base64 string
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = this.handleReaderLoaded.bind(this);
+      reader.readAsDataURL(file);
+    }
+  }
+
   updateBlog() {
     this.http
       .put('http://localhost:8000/blogs/' + this.blogId, {
