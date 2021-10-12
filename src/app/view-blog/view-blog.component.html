@@ -9,17 +9,17 @@
     </div>
 
     <div class="card-body">
-      <h2 class="card-title">{{ blog.title }}</h2>
-      <p class="card-text">
+      <h1 class="card-title text-center">{{ blog.title }}</h1>
+      <p class="card-text text-center">
         <b>By: {{ blog.author }}</b>
         <br />
         <small class="text-muted"
           ><b>Last updated {{ blog.date | date }}</b>
         </small>
       </p>
-      <p class="card-text">
-        {{ blog.content }}
-      </p>
+      <pre class="card-text">
+       <h5> {{ blog.content }}</h5>
+      </pre>
     </div>
     <div class="card-footer text-center">
       <button class="btn btn-info" routerLink="/updateBlog/{{ blog.id }}">
