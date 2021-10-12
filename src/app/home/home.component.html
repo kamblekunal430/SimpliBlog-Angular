@@ -4,14 +4,15 @@
       <div class="card-header">
         <img
           class="card-img-top"
+          style="height: 300px"
           src="{{ blog.image }}"
           alt="Food Blog Image"
         />
       </div>
       <div class="card-body">
-        <h5 class="card-title">{{ blog.title }}</h5>
+        <h4 class="card-title">{{ blog.title }}</h4>
         <p class="card-text">
-          {{ blog.content }}
+          {{ blog.content.substr(0, 225) }}
         </p>
         <a routerLink="/viewBlog/{{ blog.id }}" class="btn btn-primary"
           >Read More</a

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newblog',
@@ -11,8 +12,8 @@ export class NewblogComponent implements OnInit {
   content: any;
   author: any;
   image: any;
+  date: any = new Date().toDateString();
   blog: any = {};
-  base64: any;
 
   handleReaderLoaded = (readerEvent: any) => {
     this.image = readerEvent.target.result;
@@ -32,25 +33,29 @@ export class NewblogComponent implements OnInit {
   }
 
   addBlog() {
-    console.log(this.title);
+    /*console.log(this.title);
     console.log(this.content);
-    console.log('addblog', this.image);
+    console.log('addblog', this.image);*/
     this.blog = {
       title: this.title,
       content: this.content,
       image: this.image,
+      author: this.author,
+      date: this.date,
     };
 
     this.http.post('http://localhost:8000/blogs', this.blog).subscribe(
       (response: any) => {
-        console.log('blog added successfully', response);
+        //console.log('blog added successfully', response);
+        alert('Blog posted successfully!!!');
+        this.router.navigate(['/']);
       },
       (error: any) => {
         console.log('error occured', error);
       }
     );
   }
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {}
 }
