@@ -1,11 +1,13 @@
 <div class="container-fluid">
   <div class="card mb-3">
-    <img
-      style="height: 600px"
-      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapershome.com%2Fimages%2Fwallpapers%2Fgreek-3840x2160-cooking-recipe-lettuce-tomatoes-paprika-olives-feta-4k-17422.jpg&f=1&nofb=1"
-      class="card-img-top"
-      alt="Food Blog Image"
-    />
+    <div class="card-header">
+      <img
+        src="{{ blog.image }}"
+        class="card-img-top img-fluid"
+        alt="Food Blog Image"
+      />
+    </div>
+
     <div class="card-body">
       <h2 class="card-title">{{ blog.title }}</h2>
       <p class="card-text">
