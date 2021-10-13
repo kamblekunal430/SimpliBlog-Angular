@@ -2,6 +2,13 @@
 
 A food blog app created using Angular where users can read, write, edit, or delete new and existing posts.
 
+## To run the project
+
+    1. Run command "npm install"
+    2. Go to folder ==>  ->src->json-server
+    3. Run command "json-server --watch db.json --port 8000"
+    4. Run command "npm start" to start the project
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
 
 ## Development server
