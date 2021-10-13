@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BlogApiService } from '../blog-api.service';
 
 @Component({
   selector: 'app-update-blog',
@@ -17,13 +18,12 @@ export class UpdateBlogComponent implements OnInit {
 
   handleReaderLoaded = (readerEvent: any) => {
     this.image = readerEvent.target.result;
-    console.log('2 ', this.image);
+    //console.log('2 ', this.image);
   };
 
   onImgUpload(event: any) {
     let file = event.target.files[0];
-    console.log('file to upload', file);
-
+    // console.log('file to upload', file);
     // if file exist convert into base64 string
     if (file) {
       const reader = new FileReader();
@@ -33,8 +33,8 @@ export class UpdateBlogComponent implements OnInit {
   }
 
   updateBlog() {
-    this.http
-      .put('http://localhost:8000/blogs/' + this.blogId, {
+    this.blogApi
+      .updateBlog('http://localhost:8000/blogs/' + this.blogId, {
         title: this.title,
         author: this.author,
         date: this.date,
@@ -43,7 +43,7 @@ export class UpdateBlogComponent implements OnInit {
       })
       .subscribe(
         (res: any) => {
-          console.log('Update success', res);
+          //console.log('Update success', res);
           alert('Blog Updated Successfully...');
           this.router.navigate(['/viewBlog/' + this.blogId]);
         },
@@ -56,23 +56,26 @@ export class UpdateBlogComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private blogApi: BlogApiService
   ) {
     this.route.params.subscribe((params) => (this.blogId = params.id));
   }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8000/blogs/' + this.blogId).subscribe(
-      (response: any) => {
-        console.log('Blog with id ' + this.blogId + ' fetched', response);
-        this.title = response.title;
-        this.author = response.author;
-        this.content = response.content;
-        this.image = response.image;
-      },
-      (error: any) => {
-        console.log('cannot fetch blog', error);
-      }
-    );
+    this.blogApi
+      .getBlog('http://localhost:8000/blogs/' + this.blogId)
+      .subscribe(
+        (response: any) => {
+          //console.log('Blog with id ' + this.blogId + ' fetched', response);
+          this.title = response.title;
+          this.author = response.author;
+          this.content = response.content;
+          this.image = response.image;
+        },
+        (error: any) => {
+          console.log('cannot fetch blog', error);
+        }
+      );
   }
 }

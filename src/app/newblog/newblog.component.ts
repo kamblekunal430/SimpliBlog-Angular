@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BlogApiService } from '../blog-api.service';
 
 @Component({
   selector: 'app-newblog',
@@ -44,7 +45,7 @@ export class NewblogComponent implements OnInit {
       date: this.date,
     };
 
-    this.http.post('http://localhost:8000/blogs', this.blog).subscribe(
+    this.blogApi.postBlog('http://localhost:8000/blogs', this.blog).subscribe(
       (response: any) => {
         //console.log('blog added successfully', response);
         alert('Blog posted successfully!!!');
@@ -55,7 +56,11 @@ export class NewblogComponent implements OnInit {
       }
     );
   }
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private blogApi: BlogApiService
+  ) {}
 
   ngOnInit(): void {}
 }
