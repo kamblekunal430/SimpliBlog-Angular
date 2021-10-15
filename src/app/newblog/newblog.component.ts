@@ -37,24 +37,27 @@ export class NewblogComponent implements OnInit {
     /*console.log(this.title);
     console.log(this.content);
     console.log('addblog', this.image);*/
-    this.blog = {
-      title: this.title,
-      content: this.content,
-      image: this.image,
-      author: this.author,
-      date: this.date,
-    };
-
-    this.blogApi.postBlog('http://localhost:8000/blogs', this.blog).subscribe(
-      (response: any) => {
-        //console.log('blog added successfully', response);
-        alert('Blog posted successfully!!!');
-        this.router.navigate(['/']);
-      },
-      (error: any) => {
-        console.log('error occured', error);
-      }
-    );
+    if (this.title && this.content && this.author) {
+      this.blog = {
+        title: this.title,
+        content: this.content,
+        image: this.image,
+        author: this.author,
+        date: this.date,
+      };
+      this.blogApi.postBlog('http://localhost:8000/blogs', this.blog).subscribe(
+        (response: any) => {
+          //console.log('blog added successfully', response);
+          alert('Blog posted successfully!!!');
+          this.router.navigate(['/']);
+        },
+        (error: any) => {
+          console.log('error occured', error);
+        }
+      );
+    } else {
+      alert('Title, Author and Content cannot be empty');
+    }
   }
   constructor(
     private http: HttpClient,

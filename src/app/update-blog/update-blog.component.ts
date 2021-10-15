@@ -33,24 +33,28 @@ export class UpdateBlogComponent implements OnInit {
   }
 
   updateBlog() {
-    this.blogApi
-      .updateBlog('http://localhost:8000/blogs/' + this.blogId, {
-        title: this.title,
-        author: this.author,
-        date: this.date,
-        image: this.image,
-        content: this.content,
-      })
-      .subscribe(
-        (res: any) => {
-          //console.log('Update success', res);
-          alert('Blog Updated Successfully...');
-          this.router.navigate(['/viewBlog/' + this.blogId]);
-        },
-        (err: any) => {
-          console.log('Error while updating', err);
-        }
-      );
+    if (this.title && this.content && this.author) {
+      this.blogApi
+        .updateBlog('http://localhost:8000/blogs/' + this.blogId, {
+          title: this.title,
+          author: this.author,
+          date: this.date,
+          image: this.image,
+          content: this.content,
+        })
+        .subscribe(
+          (res: any) => {
+            //console.log('Update success', res);
+            alert('Blog Updated Successfully...');
+            this.router.navigate(['/viewBlog/' + this.blogId]);
+          },
+          (err: any) => {
+            console.log('Error while updating', err);
+          }
+        );
+    } else {
+      alert('Title, Author and Content cannot be empty');
+    }
   }
 
   constructor(
